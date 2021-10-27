@@ -8,20 +8,33 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Hardware extends HardwareDeclarations {
 
-    private static void hardwareMapping(HardwareMap hm) {
-        front_left = getDc("front_left", hm);
-        front_right = getDc("front_right", hm);
-        back_right = getDc("back_right", hm);
-        back_left = getDc("back_left", hm);
+    private static void hardwareMapping() {
+        front_left = getDc("front_left");
+        front_right = getDc("front_right");
+        back_right = getDc("back_right");
+        back_left = getDc("back_left");
+
+        slider_left = getDcEx("slider_left");
+        slider_right = getDcEx("slider_right");
+
+        intake = getCRServo("intake");
+        boxAngle = getServo("boxAngle");
     }
 
     public static void init(HardwareMap hm, Telemetry telemetry) {
-        telemetry.addLine("Initializing robot...");
-        hardwareMapping(hm);
-        telemetry.addLine("Hardware mapping done!");
+        HardwareDeclarations.telemetry = telemetry;
+        HardwareDeclarations.hardwareMap = hm;
+        HardwareDeclarations.telemetry.addLine("Initializing robot...");
+        hardwareMapping();
+        HardwareDeclarations.telemetry.addLine("Hardware mapping done!");
 
-        changeDirection(back_left, front_left);
-        telemetry.addLine("Direction changing done!");
+        RunningWithEncoders(slider_left, slider_right);
+
+        SetPIDCoefficients();
+        intiArmSliders();
+
+        changeDirection(back_left, front_left, slider_left);
+        HardwareDeclarations.telemetry.addLine("Direction changing done!");
 
     }
 
