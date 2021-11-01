@@ -20,8 +20,8 @@ public class HardwareDeclarations {
     public static CRServo intake;
     public static Servo boxAngle;
 
-    public static PIDFCoefficients sliderVelocityPID = new PIDFCoefficients(1, 2, 3, 4);
-    public static PIDFCoefficients sliderPositionPID = new PIDFCoefficients(1, 2, 3, 4);
+    public static PIDFCoefficients sliderVelocityPID = new PIDFCoefficients(20, 0, 4, 0);
+    public static PIDFCoefficients sliderPositionPID = new PIDFCoefficients(20, 0, 4, 0);
     public static PIDFCoefficients armVelocityPID = new PIDFCoefficients(1, 2, 3, 4);
     public static PIDFCoefficients armPositionPID = new PIDFCoefficients(1, 2, 3, 4);
 }

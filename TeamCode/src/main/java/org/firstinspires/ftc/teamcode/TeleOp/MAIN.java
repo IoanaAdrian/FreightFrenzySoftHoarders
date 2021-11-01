@@ -22,6 +22,8 @@ public class MAIN extends LinearOpMode {
             Movement.driving(gamepad1);
             PositionsDebug.GetArmPosition();
             PositionsDebug.GetSlidersPosition(true);
+            Sliders.toPosition(gamepad1);
+            Arm.toPosition(gamepad1);
         }
     }
 }

@@ -61,26 +61,29 @@ public class HardwareUtils {
     }
 
     public static void SetPIDCoefficients() {
-        Hardware.slider_left.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.sliderVelocityPID);
-        Hardware.slider_right.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.sliderVelocityPID);
+        Hardware.slider_left.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12);
+        Hardware.slider_right.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12);
+        ///Hardware.slider_right.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.sliderVelocityPID);
 
-        Hardware.slider_right.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.sliderPositionPID);
-        Hardware.slider_left.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.sliderPositionPID);
+        //Hardware.slider_right.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.sliderPositionPID);
+        //Hardware.slider_left.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.sliderPositionPID);
+        Hardware.slider_left.setPositionPIDFCoefficients(7);
+        Hardware.slider_right.setPositionPIDFCoefficients(7);
 
-        Hardware.arm.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.armVelocityPID);
-        Hardware.arm.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.armPositionPID);
+        //Hardware.arm.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.armVelocityPID);
+        //Hardware.arm.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.armPositionPID);
 
     }
 
-    public static void intiArmSliders() {
+    public static void initArmSliders() {
         changeDirection(Hardware.slider_right);//TODO
         Hardware.slider_right.setTargetPosition(0);
         Hardware.slider_left.setTargetPosition(0);
 
         Hardware.arm.setTargetPosition(0);
-        Hardware.arm.setPower(0.5);
+        Hardware.arm.setPower(1);
 
-        Hardware.slider_left.setPower(0.5);
-        Hardware.slider_right.setPower(0.5);
+        Hardware.slider_left.setPower(0.3);
+        Hardware.slider_right.setPower(0.3);
     }
 }

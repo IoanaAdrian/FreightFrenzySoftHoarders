@@ -16,6 +16,7 @@ public class Hardware extends HardwareDeclarations {
 
         slider_left = getDcEx("slider_left");
         slider_right = getDcEx("slider_right");
+        arm = getDcEx("arm");
 
         intake = getCRServo("intake");
         boxAngle = getServo("boxAngle");
@@ -28,12 +29,13 @@ public class Hardware extends HardwareDeclarations {
         hardwareMapping();
         HardwareDeclarations.telemetry.addLine("Hardware mapping done!");
 
-        RunningWithEncoders(slider_left, slider_right);
+        ResetEncoders(slider_left, slider_right, arm);
+        RunningWithEncoders(slider_left, slider_right, arm);
 
         SetPIDCoefficients();
-        intiArmSliders();
+        initArmSliders();
 
-        changeDirection(back_left, front_left, slider_left);
+        ///changeDirection(back_left, front_left, slider_left); sunt deja schimbate in Mymecanumdrive respectiv initArmSliders?
         HardwareDeclarations.telemetry.addLine("Direction changing done!");
 
     }
