@@ -83,7 +83,7 @@ public class HardwareUtils {
         Hardware.arm.setTargetPosition(0);
         Hardware.arm.setPower(1);
 
-        Hardware.slider_left.setPower(0.3);
-        Hardware.slider_right.setPower(0.3);
+        Hardware.slider_left.setPower(1);
+        Hardware.slider_right.setPower(1);
     }
 }

@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class HardwareDeclarations {
+
     public static Telemetry telemetry;
     public static HardwareMap hardwareMap;
     public static DcMotor front_left, front_right, back_left, back_right;
