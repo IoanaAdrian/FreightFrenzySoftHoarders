@@ -26,5 +26,9 @@ public class PositionsDebug {
         Hardware.telemetry.addData("Current arm position is: ", Hardware.arm.getCurrentPosition());
     }
 
+    public static void GetBoxPosition(){
+        Hardware.telemetry.addData("Current box position is: ", Hardware.boxAngle.getPosition());
+    }
+
 
 }

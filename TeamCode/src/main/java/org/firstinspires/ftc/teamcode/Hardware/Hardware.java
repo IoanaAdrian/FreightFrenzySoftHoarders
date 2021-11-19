@@ -35,7 +35,7 @@ public class Hardware extends HardwareDeclarations {
         SetPIDCoefficients();
         initArmSliders();
 
-        ///changeDirection(back_left, front_left, slider_left); sunt deja schimbate in Mymecanumdrive respectiv initArmSliders?
+        changeDirection(back_right);
         HardwareDeclarations.telemetry.addLine("Direction changing done!");
 
     }

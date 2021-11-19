@@ -21,6 +21,7 @@ public class MAIN extends LinearOpMode {
 
         while (!isStopRequested() && opModeIsActive()) {
             Movement.driving(gamepad1);
+            PositionsDebug.GetBoxPosition();
             PositionsDebug.GetArmPosition();
             PositionsDebug.GetSlidersPosition(true);
             Sliders.toPosition(gamepad1);

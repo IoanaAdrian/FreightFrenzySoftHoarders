@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.teamcode.TeleOp.Utils.POSITIONS;
+
 public class HardwareUtils {
 
 
@@ -70,8 +72,8 @@ public class HardwareUtils {
         Hardware.slider_left.setPositionPIDFCoefficients(7);
         Hardware.slider_right.setPositionPIDFCoefficients(7);
 
-        //Hardware.arm.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.armVelocityPID);
-        //Hardware.arm.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.armPositionPID);
+        Hardware.arm.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12);
+        Hardware.arm.setPositionPIDFCoefficients(4);
 
     }
 
@@ -85,5 +87,7 @@ public class HardwareUtils {
 
         Hardware.slider_left.setPower(1);
         Hardware.slider_right.setPower(1);
+
+        Hardware.boxAngle.setPosition(POSITIONS.boxAnglePositions.get("UP"));
     }
 }
