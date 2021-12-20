@@ -3,21 +3,21 @@ package org.firstinspires.ftc.teamcode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.Hardware.Hardware;
-import org.firstinspires.ftc.teamcode.TeleOp.Utils.POSITIONS;
+import org.firstinspires.ftc.teamcode.TeleOp.Utils.Positions;
 
 public class Sliders {
     public static void toPosition(Gamepad gamepad) {
         if (gamepad.a) {
-            Hardware.slider_left.setTargetPosition(POSITIONS.slidersPositions.get("UP"));
-            Hardware.slider_right.setTargetPosition(POSITIONS.slidersPositions.get("UP")-10);
+            Hardware.slider_left.setTargetPosition((int)Positions.Sliders.Up);
+            Hardware.slider_right.setTargetPosition((int)Positions.Sliders.Up-10);
             changePidf(Hardware.slider_left.getCurrentPosition(), Hardware.slider_left.getTargetPosition());
         } else if (gamepad.b) {
-            Hardware.slider_left.setTargetPosition(POSITIONS.slidersPositions.get("MID"));
-            Hardware.slider_right.setTargetPosition(POSITIONS.slidersPositions.get("MID")-5);
+            Hardware.slider_left.setTargetPosition((int)Positions.Sliders.Mid);
+            Hardware.slider_right.setTargetPosition((int)Positions.Sliders.Mid-5);
             changePidf(Hardware.slider_left.getCurrentPosition(), Hardware.slider_left.getTargetPosition());
         } else if (gamepad.x) {
-            Hardware.slider_left.setTargetPosition(POSITIONS.slidersPositions.get("DOWN"));
-            Hardware.slider_right.setTargetPosition(POSITIONS.slidersPositions.get("DOWN"));
+            Hardware.slider_left.setTargetPosition((int)Positions.Sliders.Down);
+            Hardware.slider_right.setTargetPosition((int)Positions.Sliders.Down);
             changePidf(Hardware.slider_left.getCurrentPosition(), Hardware.slider_left.getTargetPosition());
         }
     }

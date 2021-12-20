@@ -4,12 +4,9 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.PIDCoefficients;
-import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.TeleOp.Utils.POSITIONS;
+import org.firstinspires.ftc.teamcode.TeleOp.Utils.Positions;
 
 public class HardwareUtils {
 
@@ -80,7 +77,7 @@ public class HardwareUtils {
 
     }
 
-    public static void initArmSliders() {
+    public static void InitializePositions() {
         changeDirection(Hardware.slider_right);
         Hardware.slider_right.setTargetPosition(0);
         Hardware.slider_left.setTargetPosition(0);
@@ -91,6 +88,6 @@ public class HardwareUtils {
         Hardware.slider_left.setPower(1);
         Hardware.slider_right.setPower(1);
 
-        Hardware.boxAngle.setPosition(POSITIONS.boxAnglePositions.get("UP"));
+        Hardware.boxAngle.setPosition(Positions.Box.Up);
     }
 }

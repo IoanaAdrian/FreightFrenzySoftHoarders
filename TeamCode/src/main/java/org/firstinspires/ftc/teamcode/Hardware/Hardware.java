@@ -36,11 +36,9 @@ public class Hardware extends HardwareDeclarations {
         ResetEncoders(slider_left, slider_right, arm);
         RunningWithEncoders(slider_left, slider_right, arm);
 
-
         SetPIDCoefficients();
-        initArmSliders();
 
-        changeDirection(back_right, carusel);
+        changeDirection(back_right, carusel,arm);
         carusel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         HardwareDeclarations.telemetry.addLine("Direction changing done!");
 
