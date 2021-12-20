@@ -5,6 +5,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.PIDCoefficients;
+import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.TeleOp.Utils.POSITIONS;
@@ -64,21 +66,22 @@ public class HardwareUtils {
 
     public static void SetPIDCoefficients() {
         Hardware.slider_left.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12);
-        Hardware.slider_right.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12);
-        ///Hardware.slider_right.setPIDFCoefficients(DcMotor.RunMode.RUN_USING_ENCODER, HardwareDeclarations.sliderVelocityPID);
+        Hardware.slider_right.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12 );
 
-        //Hardware.slider_right.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.sliderPositionPID);
-        //Hardware.slider_left.setPIDFCoefficients(DcMotor.RunMode.RUN_TO_POSITION, HardwareDeclarations.sliderPositionPID);
-        Hardware.slider_left.setPositionPIDFCoefficients(7);
-        Hardware.slider_right.setPositionPIDFCoefficients(7);
+        Hardware.slider_left.setPositionPIDFCoefficients(9);
+        Hardware.slider_right.setPositionPIDFCoefficients(9);
 
-        Hardware.arm.setVelocityPIDFCoefficients(1.2, 0.12, 0, 12);
-        Hardware.arm.setPositionPIDFCoefficients(4);
+
+        Hardware.slider_left.setTargetPositionTolerance(10);
+        Hardware.slider_right.setTargetPositionTolerance(10);
+
+        Hardware.arm.setVelocityPIDFCoefficients(1.4, 0.14, 0, 14);
+        Hardware.arm.setPositionPIDFCoefficients(3.2);
 
     }
 
     public static void initArmSliders() {
-        changeDirection(Hardware.slider_right);//TODO
+        changeDirection(Hardware.slider_right);
         Hardware.slider_right.setTargetPosition(0);
         Hardware.slider_left.setTargetPosition(0);
 

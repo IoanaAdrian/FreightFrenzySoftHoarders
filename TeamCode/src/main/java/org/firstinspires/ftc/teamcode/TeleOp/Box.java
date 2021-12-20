@@ -26,8 +26,8 @@ public class Box {
             Hardware.intake.setPower(-power);
         }
         if (outtaking.onPress(gamepad.left_bumper)){
-            double currentPower=Hardware.intake.getPower();
-            Hardware.intake.setPower(-currentPower);
+            power = 1;
+            Hardware.intake.setPower(power);
         }
     }
 }

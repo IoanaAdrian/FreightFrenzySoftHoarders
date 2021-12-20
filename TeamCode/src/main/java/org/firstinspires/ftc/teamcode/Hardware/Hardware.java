@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.Hardware;
 
 import static org.firstinspires.ftc.teamcode.Hardware.HardwareUtils.*;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -20,6 +22,8 @@ public class Hardware extends HardwareDeclarations {
 
         intake = getCRServo("intake");
         boxAngle = getServo("boxAngle");
+
+        carusel=getDc("carusel");
     }
 
     public static void init(HardwareMap hm, Telemetry telemetry) {
@@ -32,10 +36,12 @@ public class Hardware extends HardwareDeclarations {
         ResetEncoders(slider_left, slider_right, arm);
         RunningWithEncoders(slider_left, slider_right, arm);
 
+
         SetPIDCoefficients();
         initArmSliders();
 
-        changeDirection(back_right);
+        changeDirection(back_right, carusel);
+        carusel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         HardwareDeclarations.telemetry.addLine("Direction changing done!");
 
     }

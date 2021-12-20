@@ -20,6 +20,7 @@ public class MAIN extends LinearOpMode {
         waitForStart();
 
         while (!isStopRequested() && opModeIsActive()) {
+            Carousel.run(gamepad2);
             Movement.driving(gamepad1);
             PositionsDebug.GetBoxPosition();
             PositionsDebug.GetArmPosition();
